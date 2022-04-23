@@ -24,16 +24,16 @@ def get_output_path() -> Path:
   return output_path
 
 
-def load_json(file_name: str) -> dict:
+def load_json(file_name: str) -> list:
   try:
     with get_output_path().joinpath(file_name).open(encoding='utf-8') as json_file:
       data = json.load(json_file)
     return data
   except FileNotFoundError:
-    return {}
+    return []
   except Exception as e:
     print(f'Something went wrong loading json file: {e}')
-    return {}
+    return []
 
 
 def write_json(file_name: str, data: any) -> None:
