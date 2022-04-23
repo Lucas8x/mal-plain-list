@@ -68,12 +68,12 @@ class MAL:
     print('Raw list saved.\n')
 
 
-if __name__ == '__main__':
+def main():
   username = input('Enter your MAL username\n> ')
   user = MAL(username)
 
   print(f'- User: {user.username}\n')
-  # print('- Anime List -')
+  print('- Anime List -')
   user.fetch_animes()
   show_diff(load_json('raw_anime_list.json'), user.animes)
   # user.print_animes()
@@ -86,3 +86,7 @@ if __name__ == '__main__':
   print('\n')
   user.save()
   user.raw_save()
+
+
+if __name__ == '__main__':
+  main()
